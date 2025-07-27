@@ -39,12 +39,11 @@ sudo snap install dosbox-staging && \
 sudo snap install freecad && \
 sudo snap install kicad && \
 
-# Install JetBrains Toolbox manually
+# Download JetBrains Toolbox but do not auto-launch
 cd /tmp && \
 wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.28.1.15219.tar.gz && \
 tar -xzf jetbrains-toolbox-*.tar.gz && \
-cd jetbrains-toolbox-*/ || exit 1 && \
-./jetbrains-toolbox & disown && \
+echo "JetBrains Toolbox extracted. Launch manually from /tmp or move to ~/Applications if needed." && \
 cd ~ && rm -rf /tmp/jetbrains-toolbox-* && \
 
 # Google Chrome
