@@ -56,6 +56,7 @@ rm google-chrome-stable_current_amd64.deb && \
 mkdir -p ~/.local/share/gnome-shell/extensions && \
 cd ~/.local/share/gnome-shell/extensions && \
 git clone --depth=1 https://github.com/megasyl/Arc-Menu.git arc-menu@linxgem33.github.com && \
+gnome-shell-extension-tool -e arc-menu@linxgem33.github.com 2>/dev/null || \
 gnome-extensions enable arc-menu@linxgem33.github.com && \
 
 # Create Python CAD virtual environment and install packages
