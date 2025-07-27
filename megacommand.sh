@@ -52,11 +52,10 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &
 sudo apt install -y ./google-chrome-stable_current_amd64.deb && \
 rm google-chrome-stable_current_amd64.deb && \
 
-# Arc Menu GNOME Extension
+# Arc Menu GNOME Extension (fallback to git clone)
 mkdir -p ~/.local/share/gnome-shell/extensions && \
-cd /tmp && \
-wget https://github.com/arc-menu/Arc-Menu/releases/latest/download/arc-menu.zip && \
-unzip arc-menu.zip -d ~/.local/share/gnome-shell/extensions/arc-menu@linxgem33.github.com && \
+cd ~/.local/share/gnome-shell/extensions && \
+git clone https://github.com/arc-menu/Arc-Menu arc-menu@linxgem33.github.com && \
 gnome-extensions enable arc-menu@linxgem33.github.com && \
 
 # Create Python CAD virtual environment and install packages
