@@ -38,7 +38,12 @@ sudo snap install code --classic && \
 sudo snap install dosbox-staging && \
 sudo snap install freecad && \
 sudo snap install kicad && \
-sudo snap install jetbrains-toolbox && \
+
+# Install JetBrains Toolbox manually
+cd /tmp && wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.28.1.15219.tar.gz && \
+tar -xzf jetbrains-toolbox-*.tar.gz && \
+cd jetbrains-toolbox-* && ./jetbrains-toolbox && \
+cd ~ && rm -rf /tmp/jetbrains-toolbox-* && \
 
 # Google Chrome
 cd /tmp && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
