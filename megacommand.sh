@@ -29,13 +29,13 @@ sudo apt update && sudo apt install -y \
 
 # Flatpak setup and apps
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && \
-flatpak install -y flathub io.github.scummvm.ScummVM org.libretro.RetroArch org.godotengine.Godot org.itch.Itch io.github.fastrun.ExtremeTuxRacer \
+flatpak install -y flathub io.github.scummvm.ScummVM org.libretro.RetroArch org.godotengine.Godot org.itch.Itch io.github.fastrun.ExtremeTuxRacer && \
 
 # Snap apps
 sudo snap install code --classic && \
 sudo snap install dosbox-staging && \
 sudo snap install freecad && \
-sudo snap install kicad \
+sudo snap install kicad && \
 
 # Google Chrome
 cd /tmp && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
@@ -51,5 +51,10 @@ gnome-extensions enable arc-menu@linxgem33.github.com && \
 # Create Python CAD virtual environment and install packages
 mkdir -p ~/.venvs && python3 -m venv ~/.venvs/cad && \
 ~/.venvs/cad/bin/pip install --upgrade pip setuptools wheel && \
-~/.venvs/cad/bin/pip install cadquery jupyterlab jupyter matplotlib numpy scipy pandas trimesh meshio pyocct ezdxf solidpython pyvista vedo
+~/.venvs/cad/bin/pip install cadquery jupyterlab jupyter matplotlib numpy scipy pandas trimesh meshio pyocct ezdxf solidpython pyvista vedo pcb-tools skidl && \
+
+# Create Python Web Dev virtual environment and install packages
+python3 -m venv ~/.venvs/webdev && \
+~/.venvs/webdev/bin/pip install --upgrade pip setuptools wheel && \
+~/.venvs/webdev/bin/pip install flask fastapi django uvicorn gunicorn httpx aiohttp requests beautifulsoup4 jinja2 sqlalchemy psycopg2-binary pymongo redis celery starlette typer black flake8 pytest ipython
 
