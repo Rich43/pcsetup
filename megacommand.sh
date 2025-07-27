@@ -84,3 +84,8 @@ python3 -m venv ~/.venvs/webdev
 ~/.venvs/webdev/bin/pip install --upgrade pip setuptools wheel
 ~/.venvs/webdev/bin/pip install flask fastapi django uvicorn gunicorn httpx aiohttp requests beautifulsoup4 jinja2 sqlalchemy psycopg2-binary pymongo redis celery starlette typer black flake8 pytest ipython
 
+# Create Python Game Dev virtual environment and install packages
+python3 -m venv ~/.venvs/gamedev
+~/.venvs/gamedev/bin/pip install --upgrade pip setuptools wheel
+~/.venvs/gamedev/bin/pip install pygame pyglet panda3d ursina moderngl pyopengl panda3d-gltf pyrr pybullet pytmx arcade tcod websockets twisted autobahn pyee
+
