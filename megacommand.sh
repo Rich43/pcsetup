@@ -1,4 +1,3 @@
-#!/bin/bash
 sudo apt update && sudo apt install -y \
   build-essential linux-headers-$(uname -r) ubuntu-restricted-extras \
   gnome-tweaks gnome-shell-extensions gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak gdebi \
@@ -16,7 +15,6 @@ sudo apt update && sudo apt install -y \
   gnome-clocks gnome-weather gnome-calendar flameshot \
   xdg-desktop-portal xdg-desktop-portal-gnome \
   mangohud gamemode libgamemode0 lutris wine winetricks dosbox steam steam-devices \
-  retroarch scummvm godot3 godot4 extremetuxracer \
   radeontop mesa-vulkan-drivers mesa-vulkan-drivers:i386 libvulkan1 libvulkan1:i386 mesa-utils \
   rustc cargo golang-go dotnet-sdk-8.0 \
   kicad fritzing ngspice ghdl gtkwave openscad librecad \
@@ -26,26 +24,31 @@ sudo apt update && sudo apt install -y \
   arduino avrdude dfu-util stm32flash openocd \
   libxcb-icccm4 libxcb-render-util0 libfuse2t64 \
   avahi-daemon avahi-discover \
-  apt-xapian-index && \
+  gnome-software-plugin-flatpak && \
 
-# Chrome
-wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-  sudo apt install -y ./google-chrome-stable_current_amd64.deb && rm google-chrome-stable_current_amd64.deb && \
-
-# Flatpak repo and packages
+# Flatpak setup and apps
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && \
-  flatpak install -y flathub com.itchio.Itch flathub org.scummvm.ScummVM flathub org.godotengine.Godot \
+flatpak install -y flathub io.github.scummvm.ScummVM org.libretro.RetroArch org.godotengine.Godot org.itch.Itch io.github.fastrun.ExtremeTuxRacer \
 
-# Snap packages
-&& sudo snap install code --classic && \
-  sudo snap install dosbox-staging && \
-  sudo snap install freecad && \
-  sudo snap install kicad && \
+# Snap apps
+sudo snap install code --classic && \
+sudo snap install dosbox-staging && \
+sudo snap install freecad && \
+sudo snap install kicad \
 
-# Install Arc Menu manually
+# Google Chrome
+cd /tmp && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+sudo apt install -y ./google-chrome-stable_current_amd64.deb && \
+rm google-chrome-stable_current_amd64.deb && \
+
+# Arc Menu GNOME Extension
 mkdir -p ~/.local/share/gnome-shell/extensions && \
-cd /tmp && \
-wget https://github.com/arc-menu/Arc-Menu/releases/latest/download/arc-menu.zip && \
+cd /tmp && wget https://github.com/arc-menu/Arc-Menu/releases/latest/download/arc-menu.zip && \
 unzip arc-menu.zip -d ~/.local/share/gnome-shell/extensions/arc-menu@linxgem33.github.com && \
-gnome-extensions enable arc-menu@linxgem33.github.com
+gnome-extensions enable arc-menu@linxgem33.github.com && \
+
+# Create Python CAD virtual environment and install packages
+mkdir -p ~/.venvs && python3 -m venv ~/.venvs/cad && \
+~/.venvs/cad/bin/pip install --upgrade pip setuptools wheel && \
+~/.venvs/cad/bin/pip install cadquery jupyterlab jupyter matplotlib numpy scipy pandas trimesh meshio pyocct ezdxf solidpython pyvista vedo
 
