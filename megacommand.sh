@@ -40,19 +40,23 @@ sudo snap install freecad && \
 sudo snap install kicad && \
 
 # Install JetBrains Toolbox manually
-cd /tmp && wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.28.1.15219.tar.gz && \
+cd /tmp && \
+wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.28.1.15219.tar.gz && \
 tar -xzf jetbrains-toolbox-*.tar.gz && \
-cd jetbrains-toolbox-* && ./jetbrains-toolbox && \
+cd jetbrains-toolbox-*/ || exit 1 && \
+./jetbrains-toolbox & disown && \
 cd ~ && rm -rf /tmp/jetbrains-toolbox-* && \
 
 # Google Chrome
-cd /tmp && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+cd /tmp && \
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
 sudo apt install -y ./google-chrome-stable_current_amd64.deb && \
 rm google-chrome-stable_current_amd64.deb && \
 
 # Arc Menu GNOME Extension
 mkdir -p ~/.local/share/gnome-shell/extensions && \
-cd /tmp && wget https://github.com/arc-menu/Arc-Menu/releases/latest/download/arc-menu.zip && \
+cd /tmp && \
+wget https://github.com/arc-menu/Arc-Menu/releases/latest/download/arc-menu.zip && \
 unzip arc-menu.zip -d ~/.local/share/gnome-shell/extensions/arc-menu@linxgem33.github.com && \
 gnome-extensions enable arc-menu@linxgem33.github.com && \
 
