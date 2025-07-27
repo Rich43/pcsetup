@@ -51,7 +51,7 @@ gnome-extensions enable arc-menu@linxgem33.github.com && \
 # Create Python CAD virtual environment and install packages
 mkdir -p ~/.venvs && python3 -m venv ~/.venvs/cad && \
 ~/.venvs/cad/bin/pip install --upgrade pip setuptools wheel && \
-~/.venvs/cad/bin/pip install cadquery jupyterlab jupyter matplotlib numpy scipy pandas trimesh meshio pyocct ezdxf solidpython pyvista vedo pcb-tools skidl && \
+~/.venvs/cad/bin/pip install cadquery jupyterlab jupyter matplotlib numpy scipy pandas trimesh meshio pyocct ezdxf solidpython pyvista vedo pcb-tools skidl shapely pcbnewTransition plotly dash svgwrite ezdxf pandas-stubs && \
 
 # Create Python Web Dev virtual environment and install packages
 python3 -m venv ~/.venvs/webdev && \
