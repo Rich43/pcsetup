@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo apt update && sudo apt install -y \
   build-essential linux-headers-$(uname -r) ubuntu-restricted-extras \
   gnome-tweaks gnome-shell-extensions gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak gdebi \
