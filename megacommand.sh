@@ -31,7 +31,7 @@ sudo apt update && sudo apt install -y \
 
 # Flatpak setup and apps
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && \
-flatpak install -y flathub org.scummvm.ScummVM org.libretro.RetroArch org.godotengine.Godot org.itch.Itch io.github.fastrun.ExtremeTuxRacer && \
+flatpak install -y flathub org.scummvm.ScummVM org.libretro.RetroArch org.godotengine.Godot io.itch.itch && \
 
 # Snap apps
 sudo snap install code --classic && \
