@@ -70,13 +70,9 @@ if ! command -v google-chrome > /dev/null; then
   rm -f google-chrome-stable_current_amd64.deb
 fi
 
-# Arc Menu GNOME Extension using correct GitHub fork
-mkdir -p ~/.local/share/gnome-shell/extensions
-cd ~/.local/share/gnome-shell/extensions
-if [ ! -d "arc-menu@linxgem33.github.com" ]; then
-  git clone --depth=1 https://github.com/megasyl/Arc-Menu.git arc-menu@linxgem33.github.com
-fi
-gnome-extensions enable arc-menu@linxgem33.github.com 2>/dev/null || true
+# Install gnome-extensions-cli and install ArcMenu from GNOME Extensions site
+pip3 install --user gnome-extensions-cli
+~/.local/bin/gext install 3628 || true
 
 # Create Python CAD virtual environment and install packages
 mkdir -p ~/.venvs && python3 -m venv ~/.venvs/cad
