@@ -1,4 +1,5 @@
 #!/bin/bash
+
 sudo apt update && sudo apt install -y \
   build-essential linux-headers-$(uname -r) ubuntu-restricted-extras \
   gnome-tweaks gnome-shell-extensions gnome-shell-extension-manager flatpak gnome-software-plugin-flatpak gdebi \
@@ -51,7 +52,7 @@ gnome-extensions enable arc-menu@linxgem33.github.com && \
 # Create Python CAD virtual environment and install packages
 mkdir -p ~/.venvs && python3 -m venv ~/.venvs/cad && \
 ~/.venvs/cad/bin/pip install --upgrade pip setuptools wheel && \
-~/.venvs/cad/bin/pip install cadquery jupyterlab jupyter matplotlib numpy scipy pandas trimesh meshio pyocct ezdxf solidpython pyvista vedo pcb-tools skidl shapely pcbnewTransition plotly dash svgwrite ezdxf pandas-stubs && \
+~/.venvs/cad/bin/pip install cadquery jupyterlab jupyter matplotlib numpy scipy pandas trimesh meshio pyocct ezdxf solidpython pyvista vedo pcb-tools skidl plotly kicad_pcb2json gerber-to-svg && \
 
 # Create Python Web Dev virtual environment and install packages
 python3 -m venv ~/.venvs/webdev && \
